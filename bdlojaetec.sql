@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Ago-2021 às 18:03
--- Versão do servidor: 10.4.20-MariaDB
--- versão do PHP: 7.3.29
+-- Tempo de geração: 10-Set-2021 às 01:21
+-- Versão do servidor: 10.4.21-MariaDB
+-- versão do PHP: 7.3.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -74,19 +74,22 @@ INSERT INTO `ordem_servico` (`os`, `data_os`, `equipamento`, `defeito`, `tecnico
 --
 
 CREATE TABLE `usuarios` (
-  `iduser` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `usuario` varchar(50) NOT NULL,
   `fone` varchar(15) NOT NULL,
   `login` varchar(15) NOT NULL,
-  `senha` varchar(15) NOT NULL
+  `senha` varchar(15) NOT NULL,
+  `admin` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`iduser`, `usuario`, `fone`, `login`, `senha`) VALUES
-(1, 'Kauã', '1199999-9999', 'kaua', '1234');
+INSERT INTO `usuarios` (`id`, `usuario`, `fone`, `login`, `senha`, `admin`) VALUES
+(1, 'Kauã', '1199999-9999', 'kaua', '1234', 1),
+(2, 'Kauã aquino', '1234', '1199999-9999', 'kaua', 1),
+(3, 'Kauã', '1199999-9999', 'kauaeaeae', '3333', 1);
 
 --
 -- Índices para tabelas despejadas
@@ -109,7 +112,7 @@ ALTER TABLE `ordem_servico`
 -- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`iduser`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `login` (`login`);
 
 --
@@ -132,7 +135,7 @@ ALTER TABLE `ordem_servico`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restrições para despejos de tabelas

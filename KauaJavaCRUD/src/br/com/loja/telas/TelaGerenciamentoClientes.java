@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -31,11 +32,13 @@ public class TelaGerenciamentoClientes extends javax.swing.JFrame {
     }
          
     private void limpar() {
+        campoProcurar.setText((null));
         campoId.setText(null);
         campoNome.setText(null);
         campoTelefone.setText(null);
         campoLogin.setText(null);
         campoEndereco.setText(null);
+        buscar();
     }
     
     private boolean camposEstaoLimpos() {
@@ -47,7 +50,7 @@ public class TelaGerenciamentoClientes extends javax.swing.JFrame {
     
     private void buscar() {
         try {
-            String sql = "SELECT * FROM clientes WHERE nomecli LIKE ?";
+            String sql = "SELECT idcli as Id, nomecli as Nome, endcli as Endereço, fonecli as Telefone,emailcli as Email FROM clientes WHERE nomecli LIKE ?";
             
             ps = conexao.prepareStatement(sql);
             ps.setString(1, campoProcurar.getText() + "%");
@@ -189,13 +192,13 @@ public class TelaGerenciamentoClientes extends javax.swing.JFrame {
 
         tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nome", "Endereço", "Telefone", "Email"
+                "Id", "Nome", "Endereço", "Telefone", "Email"
             }
         ));
         tabelaClientes.addMouseListener(new java.awt.event.MouseAdapter() {

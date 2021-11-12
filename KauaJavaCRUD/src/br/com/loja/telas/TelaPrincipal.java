@@ -67,6 +67,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenuCadastro.add(MenuCadastroCliente);
 
         MenuCadastroOS.setText("OS");
+        MenuCadastroOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuCadastroOSActionPerformed(evt);
+            }
+        });
         MenuCadastro.add(MenuCadastroOS);
 
         MenuCadastroUsuario.setText("Usuários");
@@ -119,15 +124,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Desktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(lblData)
-                        .addContainerGap(59, Short.MAX_VALUE))))
+                    .addComponent(lblData)
+                    .addComponent(lblUsuario))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +138,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblUsuario)
-                        .addGap(51, 51, 51)
+                        .addGap(47, 47, 47)
                         .addComponent(lblData)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(Desktop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -182,6 +183,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
   
     }//GEN-LAST:event_MenuCadastroClienteActionPerformed
+
+    private void MenuCadastroOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCadastroOSActionPerformed
+        TelaOS telaOs = new TelaOS();
+        telaOs.setVisible(true);
+        Desktop.add(telaOs);
+    }//GEN-LAST:event_MenuCadastroOSActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1,4 +1,4 @@
-# CRUD Java SQL - Kauã e Luiza
+# CRUD Java SQL
 
 ![Estrelas](https://img.shields.io/github/stars/kauaquino/CRUD-JAVA-SQL-LUIZA-KAUA?style=plastic)
 [![GitHub](https://img.shields.io/github/license/anandchowdhary/language-icons.svg)](https://github.com/AnandChowdhary/language-icons/blob/master/LICENSE)
